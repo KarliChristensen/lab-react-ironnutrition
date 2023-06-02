@@ -15,6 +15,13 @@ function App() {
     setFoodArr(updatedFoodArr);
   };
 
+  const deleteFood = (foodDeletion) => {
+    const newFoodArr = [...foodArr].filter((foodDeletion) => {
+      return foodDeletion.name !== foodArr[0].name;
+    });
+    setFoodArr(newFoodArr);
+  };
+
   return (
     <div className="App">
       {/*       <div>
@@ -36,6 +43,7 @@ function App() {
           })
           .map((foodItem, index) => (
             <FoodBox
+              deleteFood={deleteFood}
               key={index}
               name={foodItem.name}
               image={foodItem.image}
